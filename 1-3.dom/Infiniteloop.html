@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Infiniteloop</title>
+</head>
+
+<body>
+    <div></div>
+    <button onclick="infiniteloop()">Infiniteloop</button>
+    <br>
+    <input  type="text">
+    <script>
+        function infiniteloop() {
+            var alldivs = document.getElementsByTagName('div')
+            for (var i = 0; i > -1; i++) {
+                console.log(1)
+                // document.body.appendChild(document.createElement('div'))
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>缓存对象成员值</title>
+</head>
+
+<body>
+    <p id="s1" class="selected">toggle1</p>
+    <p id="s2" class="selected">toggle2</p>
+    <button onclick="toggle1()">toggle1</button>
+    <button onclick="toggle2()">toggle2</button>
+
+    <script src="./src/jquery.js"></script>
+    <script>
+        /*缓存对象成员值*/
+        function toggle1() {
+            console.time('toggle1')
+            if ($("#s1").hasClass("selected")) {
+                $("#s1").removeClass("selected");
+                console.timeEnd('toggle1')
+                return false;
+            } else {
+                $("#s1").addClass("selected");
+                console.timeEnd('toggle1')
+                return true;
+            }
+        }
+        function toggle2() {
+            console.time('toggle2')
+            var dom = $("#s2")
+            if (dom.hasClass("selected")) {
+                dom.removeClass("selected");
+                console.timeEnd('toggle2')
+                return false;
+            } else {
+                dom.addClass("selected");
+                console.timeEnd('toggle1')
+                return true;
+            }
+        }
+    </script>
+</body>
+
+</html>

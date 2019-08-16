@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>innerHtmlLoop</title>
+</head>
+
+<body>
+    <div class="content">
+        <div id="here1"></div>
+        <div id="here2"></div>
+    </div>
+    <button onclick="innerHtmlLoop1()">innerHtmlLoop1</button>
+    <button onclick="innerHtmlLoop2()">innerHtmlLoop2</button>
+    <script>
+        function innerHtmlLoop1() {
+            console.time('innerHtmlLoop1')
+            for (var count = 0; count < 1500; count++) {
+                document.getElementById('here1').innerHTML += 'a'
+            }
+            console.timeEnd('innerHtmlLoop1')
+        }
+        /*减少访问DOM的次数，把运算留在ECMAScript这一端处理*/
+        function innerHtmlLoop2() {
+            console.time('innerHtmlLoop2')
+            var content = ''
+            for (var count = 0; count < 1500; count++) {
+                content += 'b'
+            }
+            document.getElementById('here2').innerHTML += content
+            console.timeEnd('innerHtmlLoop2')
+        }
+    </script>
+</body>
+
+</html>
